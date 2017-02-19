@@ -3,6 +3,8 @@
 ##Make into module
 ##Create parameter that accepts a number for number of songs per artist to include in playlist
 ##Fix user access token retrieval to be less hacky 
+##Collect band names and song titles for final output report
+##Better artist validation. Grabbing the first result based on search terms, not good enough
 
 param( [string]$ArtistList )
 if ($ArtistList.length -eq 0)
