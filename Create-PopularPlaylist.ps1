@@ -1,9 +1,22 @@
 
 ##TO DO
 ##Make into module
-##Create parameter that accepts a filepath for a list of artists
 ##Create parameter that accepts a number for number of songs per artist to include in playlist
-##Fix user access token retrieval to be less hacky
+##Fix user access token retrieval to be less hacky 
+
+param( [string]$ArtistList )
+if ($ArtistList.length -eq 0)
+    {
+    $FileArtistList = Read-Host "Enter a file path to a list of artists. (for example: C:\Temp\bandlist.txt) or just press Enter to enter a single artist"
+    if ($FileArtistList.length -ne 0)
+        {
+            $ArtistList = Get-Content $FileArtistList
+        }
+    }
+if ($ArtistList.length -eq 0)
+    {
+    $ArtistList = Read-Host "Enter the name of an artist"
+    }
 
 #Change this variable to your Spotify clientID/API token
 $clientid = <Spotify API client ID here>
